@@ -634,6 +634,16 @@ const SectionGaleri: React.FC = () => {
             </div>
           </div>
         ))}
+        <div className="col-span-2 relative overflow-hidden rounded-lg shadow-md">
+          <video
+            src="/assets/video-spesial.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-64 object-cover"
+          />
+        </div>
       </div>
     </section>
   );
@@ -646,7 +656,7 @@ const SectionAcara: React.FC = () => {
       id="acara"
       className="py-16 bg-white/1 frosted-card rounded-lg shadow-xl mb-12 px-4 animate-fade-in-up"
     >
-      <div className="text-center mb-12">
+      <div className="text-center mb-8">
         <h2 className="text-4xl font-great-vibes text-[var(--color-primary)] mb-4">
           Waktu Acara Perayaan
         </h2>
@@ -657,14 +667,6 @@ const SectionAcara: React.FC = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-stretch gap-8">
-        <div className="flex-1 p-6 bg-[var(--color-secondary)] rounded-lg shadow-md text-center transform hover:scale-105 transition-transform duration-300">
-          <h3 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">
-            Tasyakuran
-          </h3>
-          <p className="text-gray-700 mb-2">Sabtu, 21 Juni 2025</p>
-          <p className="text-gray-700 mb-2">Pukul 09:00 s.d Selesai</p>
-        </div>
-
         <div className="flex-1 p-6 bg-[var(--color-secondary)] rounded-lg shadow-md text-center transform hover:scale-105 transition-transform duration-300">
           <h3 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">
             Resepsi
