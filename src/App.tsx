@@ -713,7 +713,7 @@ const SectionLokasi: React.FC = () => {
       </p>
       <div className="text-center mt-4">
         <a
-          href="https://maps.app.goo.gl/1kzqMZzHBUSM8u276"
+          href="https://goo.gl/maps/rK6ZLkrSwGVXzVri6"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-block px-6 py-2 bg-[var(--color-primary)] text-white rounded-full hover:bg-opacity-90 duration-300"
