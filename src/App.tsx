@@ -576,7 +576,7 @@ const SectionKirimHadiah: React.FC = () => {
               <button
                 onClick={() => {
                   copyToClipboard(
-                    "0462804871",
+                    "0841418578",
                     "Nomor rekening BNI feri berhasil disalin!"
                   );
                   setCopiedBNI1(true);
@@ -607,7 +607,7 @@ const SectionKirimHadiah: React.FC = () => {
               <button
                 onClick={() => {
                   copyToClipboard(
-                    "0971122624",
+                    "1398471402",
                     "Nomor rekening BNI Usy berhasil disalin!"
                   );
                   setCopiedBNI2(true);
@@ -656,7 +656,7 @@ const SectionKirimHadiah: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <div className="flex justify-center">
-      <div className="mb-12 w-fit item-center py-3 px-4 bg-white/1 frosted-card rounded-full shadow-xl text-center text-sm text-black animate-fade-in-up">
+      <div className="mb-20 w-fit item-center py-3 px-4 bg-white/1 frosted-card rounded-full shadow-xl text-center text-sm text-black animate-fade-in-up">
         Made with 🫶🏻 by <span className="text-black font-bold">Arya-Dewi</span>
       </div>
     </div>
