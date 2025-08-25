@@ -310,7 +310,7 @@ const SectionPengantin: React.FC = () => {
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-4">
         {/* Dewi */}
-        <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md w-full md:w-auto">
+        <div className="flex flex-col items-center text-center p-6 bg-[var(--color-secondary)] rounded-lg shadow-md w-full md:w-auto">
           <h3 className="text-5xl font-great-vibes text-[var(--color-primary)] mb-2">
             Feri Ardiansa
           </h3>
@@ -324,7 +324,7 @@ const SectionPengantin: React.FC = () => {
         </span>
 
         {/* Arya */}
-        <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md w-full md:w-auto">
+        <div className="flex flex-col items-center text-center p-6 bg-[var(--color-secondary)] rounded-lg shadow-md w-full md:w-auto">
           <h3 className="text-5xl font-great-vibes text-[var(--color-primary)] mb-2">
             Amalia Usy Sarofi
           </h3>
@@ -558,7 +558,7 @@ const SectionKirimHadiah: React.FC = () => {
 
       <div className="flex flex-col md:flex-row justify-center items-stretch gap-8">
         {/* Transfer Bank */}
-        <div className="flex-1 p-6 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+        <div className="bg-[var(--color-secondary)] flex-1 p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
           <h3 className="text-2xl font-semibold text-[var(--color-primary)] mb-6 text-center">
             Cashless
           </h3>
@@ -623,7 +623,7 @@ const SectionKirimHadiah: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="p-6 bg-white rounded-lg shadow-md text-center max-w-lg mx-auto transform hover:scale-105 transition-transform duration-300">
+        <div className="bg-[var(--color-secondary)] p-6 rounded-lg shadow-md text-center max-w-lg mx-auto transform hover:scale-105 transition-transform duration-300">
           <h3 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">
             Alamat Pengiriman Kado
           </h3>
