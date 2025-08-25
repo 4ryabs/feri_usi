@@ -145,210 +145,7 @@ const MusicPlayer: React.FC = () => {
   );
 };
 
-// Komponen Halaman Sampul Awal
-// interface CoverPageProps {
-//   invitedName: string;
-//   onOpenInvitation: () => void;
-// }
-
-// const CoverPage: React.FC<CoverPageProps> = ({
-//   invitedName,
-//   onOpenInvitation,
-// }) => {
-//   const [startZoom, setStartZoom] = useState(false);
-//   const [showContent, setShowContent] = useState(false);
-
-//   return (
-//     <div className="relative h-screen w-screen overflow-hidden bg-[url('assets/Main-bg.png')] bg-cover bg-center">
-//       {/* Background tetap diam */}
-//       <div className="absolute inset-0"></div>
-
-//       {/* Cover PNG dengan efek zoom */}
-//       <AnimatePresence>
-//         {!showContent && (
-//           <motion.div
-//             className="absolute inset-0 flex flex-col items-center justify-center bg-white/10 z-20"
-//             initial={{ opacity: 1 }}
-//             animate={{ opacity: startZoom ? 0 : 1 }}
-//             exit={{ opacity: 0 }}
-//             transition={{ duration: 2 }}
-//           >
-//             {/* PNG cover */}
-//             <motion.img
-//               src="assets/entrance.png"
-//               alt="Cover Window"
-//               className="relative w-screen h-screen object-contain"
-//               initial={{ scale: 1 }}
-//               animate={
-//                 startZoom ? { scale: 3, opacity: 0 } : { scale: 1, opacity: 1 }
-//               }
-//               transition={{ duration: 2, ease: "easeInOut" }}
-//               onAnimationComplete={() => {
-//                 if (startZoom) setShowContent(true);
-//               }}
-//             />
-
-//             {/* Tombol Buka Undangan */}
-//             {!startZoom && (
-//               <button
-//                 onClick={() => setStartZoom(true)}
-//                 className="absolute bottom-20 px-6 py-3 bg-pink-200 text-pink-800 rounded-full shadow-lg hover:scale-105 transition"
-//               >
-//                 Buka Undangan
-//               </button>
-//             )}
-//           </motion.div>
-//         )}
-//       </AnimatePresence>
-
-//       {/* Konten undangan muncul setelah animasi selesai */}
-//       {showContent && (
-//         <motion.div
-//           className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white"
-//           initial={{ opacity: 0 }}
-//           animate={{ opacity: 1 }}
-//           transition={{ duration: 1 }}
-//         >
-//           <h1 className="text-4xl mb-4">Our Story Begins Here</h1>
-//           <p className="text-2xl mb-6">You are invited, {invitedName}</p>
-//           <button
-//             onClick={onOpenInvitation}
-//             className="px-6 py-3 bg-pink-200 text-pink-800 rounded-full shadow-lg hover:scale-105 transition"
-//           >
-//             Lihat Detail Undangan
-//           </button>
-//         </motion.div>
-//       )}
-//     </div>
-//   );
-// };
-
-// Komponen Halaman Utama Undangan
-// interface MainInvitationProps {
-//   invitedName: string;
-// }
-
-// const MainInvitation: React.FC<MainInvitationProps> = ({ invitedName }) => {
-//   const [activeSection, setActiveSection] = useState("home");
-//   const sections = [
-//     { id: "pengantin", icon: <HandHeart size={20} />, label: "Home" },
-//     { id: "acara", icon: <Calendar size={20} />, label: "Acara" },
-//     { id: "lokasi", icon: <MapPin size={20} />, label: "Lokasi" },
-//     { id: "hadiah", icon: <Gift size={20} />, label: "Hadiah" },
-//   ];
-
-//   const [currentIndex, setCurrentIndex] = useState(0);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-//     }, 2400);
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   const scrollToSection = (id: string) => {
-//     setActiveSection(id);
-//     const element = document.getElementById(id);
-//     if (element) {
-//       element.scrollIntoView({ behavior: "smooth" });
-//     }
-//   };
-
-//   return (
-//     <div className="relative">
-//       <MusicPlayer />
-//       {/* Bagian Sampul Utama (tetap di atas) */}
-//       <section
-//         id="home"
-//         className={`relative w-screen flex flex-col items-center justify-center bg-cover bg-center text-white p-4 duration-1000`}
-//         style={{ height: "100dvh", minHeight: "100vh" }}
-//       >
-//         {images.map((img, index) => (
-//           <div
-//             key={index}
-//             className={`absolute inset-0 transition-opacity duration-1000 ease-out-in ${
-//               index === currentIndex ? "opacity-100 z-10" : "opacity-40 z-0"
-//             }`}
-//             style={{
-//               backgroundImage: `url(${img})`,
-//               backgroundSize: "cover",
-//               backgroundPosition: "center",
-//             }}
-//           >
-//             <div className="absolute inset-0 bg-black opacity-50"></div>
-//           </div>
-//         ))}
-//         <div className="relative z-20 flex flex-col items-center p-6 text-center max-w-lg mx-auto h-full">
-//           {/* Bagian Atas */}
-//           <div className="flex-1 flex flex-col justify-end">
-//             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 animate-fade-in-down drop-shadow-lg">
-//               Perayaan Cinta
-//             </h1>
-//             <p className="text-4xl sm:text-5xl md:text-7xl font-great-vibes mb-4 animate-fade-in-up drop-shadow-lg">
-//               Feri & Usy
-//             </p>
-//           </div>
-
-//           {/* Spacer tengah untuk show background */}
-//           <div className="h-72 sm:h-88 md:h-104 lg:h-120 xl:h-136"></div>
-
-//           {/* Bagian Bawah */}
-//           <div className="flex-1 flex flex-col items-center justify-start">
-//             <p className="text-base sm:text-lg md:text-xl mb-2 animate-fade-in drop-shadow-md">
-//               Kepada Yth. Bapak/Ibu/Saudara/i:
-//             </p>
-//             <p className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 animate-fade-in-slow drop-shadow-lg">
-//               {invitedName}
-//             </p>
-//           </div>
-//         </div>
-//       </section>
-//       {/* Konten Utama Undangan dengan background baru */}
-//       <div
-//         className="w-screen mx-auto px-4 py-12 relative z-10 bg-cover bg-center"
-//         style={{
-//           backgroundImage: `url(${mainBgImage})`,
-//           backgroundAttachment: "fixed",
-//         }}
-//       >
-//         <div className="relative z-20">
-//           {/* Pastikan konten di atas overlay */}
-//           <SectionPengantin />
-//           <CountdownTimer targetDate="2025-06-22T00:00:00" />
-//           <SectionAcara />
-//           <SectionLokasi />
-//           <SectionKirimHadiah />
-//           <Footer />
-//         </div>
-//       </div>
-
-//       <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-[var(--color-primary)] text-white shadow-lg z-50 rounded-full py-1 px-4">
-//         <ul className="flex justify-evenly items-center w-full">
-//           {sections.map((section) => (
-//             <li key={section.id} className="flex-1 text-center">
-//               <button
-//                 onClick={() => scrollToSection(section.id)}
-//                 className={`flex flex-col items-center justify-center p-2 gap-0.5 min-w-[60px] sm:min-w-[72px] rounded-full border transition-all duration-300 ${
-//                   activeSection === section.id
-//                     ? "bg-white text-[var(--color-primary)] border-[var(--color-primary)]"
-//                     : "text-white border-transparent"
-//                 }`}
-//               >
-//                 <span className="w-5 h-5 flex items-center justify-center">
-//                   {section.icon}
-//                 </span>
-//                 <span className="mt-0.5 text-[11px] sm:text-xs h-5 overflow-hidden text-ellipsis whitespace-nowrap">
-//                   {section.label}
-//                 </span>
-//               </button>
-//             </li>
-//           ))}
-//         </ul>
-//       </nav>
-//     </div>
-//   );
-// };
-
+// Komponen Utama Undangan
 interface MainInvitationProps {
   invitedName: string;
 }
@@ -410,11 +207,11 @@ const MainInvitation: React.FC<MainInvitationProps> = ({ invitedName }) => {
               >
                 Buka Undangan
               </button>
-
             )}
           </motion.div>
         )}
       </AnimatePresence>
+      {startZoom && <MusicPlayer />}
 
       {/* MAIN CONTENT */}
       {showContent && (
@@ -442,7 +239,7 @@ const MainInvitation: React.FC<MainInvitationProps> = ({ invitedName }) => {
                 <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 drop-shadow-lg">
                   Perayaan Cinta
                 </h1>
-                <p className="text-4xl sm:text-5xl md:text-7xl font-great-vibes mb-4 drop-shadow-lg">
+                <p className="text-6xl sm:text-7xl md:text-8xl font-great-vibes mb-4 drop-shadow-lg">
                   Feri & Usy
                 </p>
               </div>
