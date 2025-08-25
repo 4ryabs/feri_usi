@@ -189,7 +189,7 @@ const MainInvitation: React.FC<MainInvitationProps> = ({ invitedName }) => {
             {!startZoom && (
               <button
                 onClick={() => setStartZoom(true)}
-                className="absolute bottom-48 z-20 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-text-light)] rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
+                className="absolute bottom-24 z-20 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-text-light)] rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
               >
                 Buka Undangan
               </button>
@@ -231,7 +231,7 @@ const MainInvitation: React.FC<MainInvitationProps> = ({ invitedName }) => {
               </div>
 
               {/* Spacer tengah */}
-              <div className="h-[26rem] sm:h-[28rem] md:h-[30rem] lg:h-[32rem] xl:h-[34rem]"></div>
+              <div className="h-[20rem] sm:h-[22rem] md:h-[28rem] lg:h-[30rem] xl:h-[34rem]"></div>
 
               {/* Bagian Bawah */}
               <div className="flex-1 flex flex-col items-center justify-start">
@@ -311,7 +311,7 @@ const SectionPengantin: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-center items-center gap-4">
         {/* Dewi */}
         <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md w-full md:w-auto">
-          <h3 className="text-3xl font-great-vibes text-[var(--color-primary)] mb-2">
+          <h3 className="text-5xl font-great-vibes text-[var(--color-primary)] mb-2">
             Feri Ardiansa
           </h3>
           <p className="text-gray-600">
@@ -325,7 +325,7 @@ const SectionPengantin: React.FC = () => {
 
         {/* Arya */}
         <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md w-full md:w-auto">
-          <h3 className="text-3xl font-great-vibes text-[var(--color-primary)] mb-2">
+          <h3 className="text-5xl font-great-vibes text-[var(--color-primary)] mb-2">
             Amalia Usy Sarofi
           </h3>
           <p className="text-gray-600">
@@ -503,14 +503,23 @@ const SectionKirimHadiah: React.FC = () => {
   const [copiedBNI2, setCopiedBNI2] = useState(false);
   const [copiedAddress, setCopiedAddress] = useState(false);
 
-  const copyToClipboard = (text: string, message: string) => {
-    const el = document.createElement("textarea");
-    el.value = text;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand("copy");
-    document.body.removeChild(el);
-    // Modified to use a custom alert message, as window.alert is disallowed
+  const copyToClipboard = async (text: string, message: string) => {
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback for older browsers
+        const el = document.createElement("textarea");
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+      }
+    } catch (err) {
+      // Optionally handle error
+    }
+    // Custom alert message
     const customAlert = document.createElement("div");
     customAlert.className =
       "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100]";
