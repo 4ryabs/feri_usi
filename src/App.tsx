@@ -12,20 +12,6 @@ import { AnimatePresence, motion } from "framer-motion";
 const mainBgImage = "/assets/Main-bg.png";
 const bgImage = "/assets/bg-image.png";
 
-const aryaImages = [
-  "/assets/foto-7.jpg",
-  "/assets/foto-6.jpg",
-  "/assets/foto-10.jpg",
-  "/assets/foto-11.jpg",
-];
-
-const dewiImages = [
-  "/assets/foto-8.jpg",
-  "/assets/foto-9.jpg",
-  "/assets/foto-12.jpg",
-  "/assets/foto-13.jpg",
-];
-
 // Custom CSS untuk font, animasi, dan warna tema baru
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@300;400;500;600;700&display=swap');
@@ -307,26 +293,6 @@ const MainInvitation: React.FC<MainInvitationProps> = ({ invitedName }) => {
 
 // Komponen Bagian Mempelai
 const SectionPengantin: React.FC = () => {
-  const [aryaIndex, setAryaIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAryaIndex((prevIndex) => (prevIndex + 1) % aryaImages.length);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const [dewiIndex, setDewiIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDewiIndex((prevIndex) => (prevIndex + 1) % dewiImages.length);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       id="pengantin"
@@ -342,21 +308,9 @@ const SectionPengantin: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4">
         {/* Dewi */}
         <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md w-full md:w-auto">
-          <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-[var(--color-primary)] shadow-lg mb-4 relative">
-            {dewiImages.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`Dewi ${i + 1}`}
-                className={`absolute w-full h-full object-cover ${
-                  i === dewiIndex ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
-          </div>
           <h3 className="text-3xl font-great-vibes text-[var(--color-primary)] mb-2">
             Feri Ardiansa
           </h3>
@@ -371,18 +325,6 @@ const SectionPengantin: React.FC = () => {
 
         {/* Arya */}
         <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md w-full md:w-auto">
-          <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-[var(--color-primary)] shadow-lg mb-4 relative">
-            {aryaImages.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`Arya ${i + 1}`}
-                className={`absolute w-full h-full object-cover transition-opacity duration-800 ${
-                  i === aryaIndex ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
-          </div>
           <h3 className="text-3xl font-great-vibes text-[var(--color-primary)] mb-2">
             Amalia Usy Sarofi
           </h3>
